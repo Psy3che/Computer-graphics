@@ -1,0 +1,24 @@
+void setup(){
+  size(400,400);
+  ellipseMode(RADIUS);
+}
+
+void draw(){
+  noLoop();
+  noFill();
+  beginShape();
+    // 画坐标轴
+  line(0, height/2, width, height/2); // X轴（水平）
+  line(width/2, 0, width/2, height); // Y轴（垂直）
+  for (float x = 0; x <= 2*PI; x += PI/12) {
+    
+    // 把数学 x 映射到屏幕坐标
+    float screenX = map(x, 0, 2*PI, 50, width-50);
+    
+    // 把数学 cos(x) 映射到屏幕坐标（放大+居中）
+    float screenY = map(cos(x), -1, 1, 100, height-100);
+    
+    vertex(screenX, screenY);
+  }
+  endShape();
+}
