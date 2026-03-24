@@ -1,0 +1,32 @@
+float x0 = 200,
+      y0 = 200,
+      x2=200,
+      y2=150,
+      r2=50,
+      r = 100;
+
+void setup(){
+  size(400,400);
+  ellipseMode(RADIUS);
+}
+
+void draw(){
+  noLoop();
+  noFill();
+  beginShape();
+  for (float t = 0; t <= TWO_PI; t += 0.1){
+    float x = x0 + r * cos(t);
+    float y = y0 + r * sin(t);
+    vertex(x, y);
+  }
+ 
+  //vertex(x0 + r * cos(TWO_PI), y0 + r * sin(TWO_PI));
+  endShape(CLOSE);
+  beginShape();
+   for (float t = PI/2; t<=3*PI/2; t += 0.1){
+    float x = x2 + r2 * cos(t);
+    float y = y2 + r2 * sin(t);
+    vertex(x, y);
+  }
+   endShape();
+}
